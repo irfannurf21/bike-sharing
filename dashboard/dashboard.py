@@ -3,8 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import calendar
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
+
 
 # Menentukan path file CSV secara dinamis
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
