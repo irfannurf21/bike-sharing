@@ -6,10 +6,15 @@ import calendar
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
-# Load Data
-file_path = "main_data.csv"
-df = pd.read_csv(file_path)
-df['datetime'] = pd.to_datetime(df['datetime'])
+# Menentukan path file CSV secara dinamis
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(BASE_DIR, "main_data.csv")
+
+try:
+    df = pd.read_csv(data_path)
+except Exception as e:
+    st.error(f"Error loading data: {e}")
+    st.stop()
 
 # Pastikan 'season' dan 'weekday' dalam format yang benar
 if df['season'].dtype != object:
